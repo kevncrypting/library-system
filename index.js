@@ -1,11 +1,13 @@
 import BookList from './BookList.js'; // imports the BookList class
 import Book from './Book.js'; // imports the Book class
-//import cardholder
-//import library card
+import Cardholder from '.Cardholder.js'; // imports the Cardholder class
+import LibraryCard from '.LibraryCard.js'; //imports the LibraryCard class
+import Library from '.Library.js'; //imports the Library class
 
 // creates two new reading lists based off the BookList class and assigns them each a name/reference
-let summerReadingList = new BookList();
-let winterReadingList = new BookList();
+let summerReadingList = new BookList("Summer Reading List");
+let winterReadingList = new BookList("Winter Reading List");
+let staffPicks = new BookList("Staff Picks");
 
 // console.log(summerReadingList);
 // console.log(winterReadingList);
