@@ -14,7 +14,7 @@ export default class BookList {
         }
     }
 
-    finishCurrentBook() {
+    // finishCurrentBook() {
         
-    }
+    // }
 }

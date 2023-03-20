@@ -1,14 +1,16 @@
 export default class Book {
     constructor(title = ``, 
                 genre = ``, 
-                author = ``, 
-                hasBeenRead = false, 
+                author = [], 
+                isAvailable = false, 
+                currentHolder = `library`,
                 currentPage = 0, 
                 totalNumberOfPages = 0) {
         this.title = title;
         this.genre = genre;
         this.author = author;
-        this.hasBeenRead = hasBeenRead;
+        this.isAvailable = isAvailable;
+        this.currentHolder = currentHolder;
         this.currentPage = currentPage;
         this.totalNumberOfPages = totalNumberOfPages;
     }
@@ -24,8 +26,6 @@ export default class Book {
             // if current reading session would increment the current page past the total, then it sets the currentPage value equal to the totalNumberOfPages, ...
         } else if ((this.currentPage + pages) >= this.totalNumberOfPages) {
             this.currentPage = this.totalNumberOfPages;
-            // ...then changes the boolean hasBeenRead to true
-            this.hasBeenRead = true;
             // and displays a completion of book message
             return `Another book in the... books! After reading ${pages} pages, you finally finished ${this.title}.`
         } else {
