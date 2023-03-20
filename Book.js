@@ -3,7 +3,7 @@ export default class Book {
                 genre = ``, 
                 author = [], 
                 isAvailable = false, 
-                currentHolder = `library`,
+                currentHolder = ``,
                 currentPage = 0, 
                 totalNumberOfPages = 0) {
         this.title = title;

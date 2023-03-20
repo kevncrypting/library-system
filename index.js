@@ -1,8 +1,13 @@
-import BookList from './BookList.js'; // imports the BookList class
-import Book from './Book.js'; // imports the Book class
-import Cardholder from './Cardholder.js'; // imports the Cardholder class
-// import LibraryCard from '.LibraryCard.js'; //imports the LibraryCard class
-import Library from './Library.js'; //imports the Library class
+// imports the BookList class
+import BookList from './BookList.js'; 
+// imports the Book class
+import Book from './Book.js'; 
+// imports the Cardholder class
+import Cardholder from './Cardholder.js'; 
+// imports the LibraryCard class
+// import LibraryCard from '.LibraryCard.js';
+// imports the Library class
+import Library from './Library.js';
 
 // creates a new library called mainBranch based off the Library class, and assigns it the name "Main Branch"
 let mainBranch = new Library("Main Branch");
@@ -12,14 +17,14 @@ let staffPicks = new BookList("Staff Picks");
 let programmingBooks = new BookList("Programming Books");
 
 // creates two new books based off the Book class and assigns them each a name/reference, also passes in the specified arguments
-let nativeSon = new Book("Native Son", "realness", ["Richard Wright"], true, 'library', 0, 311);
-let artOfWar = new Book("The Art of War", "self-help", ["Sun Tzu"], true, 'library', 0, 99);
+let nativeSon = new Book("Native Son", "realness", ["Richard Wright"], true, 'Main Branch', 0, 311);
+let artOfWar = new Book("The Art of War", "self-help", ["Sun Tzu"], true, 'Main Branch', 0, 99);
 
 // creates two new books based off the Book class and assigns them each a title, genre, author(s), etc...
-let cleanCode = new Book("Clean Code: A Handbook of Agile Software Craftsmanship", "educational", ["Robert Martin"], true, 'library', 0, 464);
-let thePragmaticProgrammer = new Book("The Pragmatic Programmer", "educational", ["Andrew Hunt", "David Thomas"], true, 'library', 0, 352)
+let cleanCode = new Book("Clean Code: A Handbook of Agile Software Craftsmanship", "educational", ["Robert Martin"], true, 'Main Branch', 0, 464);
+let thePragmaticProgrammer = new Book("The Pragmatic Programmer", "educational", ["Andrew Hunt", "David Thomas"], true, 'Main Branch', 0, 352)
 
-let kevinPrachith = new Cardholder("Kevin", "Prachith", "Main Branch", 1234567890);
+let kevinPrachith = new Cardholder("Kevin", "Prachith", mainBranch);
 
 // adds two books to the staffPicks BookList
 staffPicks.addBook(nativeSon);
@@ -37,15 +42,21 @@ mainBranch.intakeBookList(programmingBooks);
 // console.log(staffPicks);
 // console.log(programmingBooks);
 
+console.log(programmingBooks);
+
 // NEW METHOD ALERT - should change isAvailable on book to false, then add book to Cardholder books
-kevinPrachith.checkoutBook(cleanCode);
+kevinPrachith.checkout(cleanCode);
+
+mainBranch.registerNewCardholder(kevinPrachith);
 
 console.log(programmingBooks);
 
-// NEW METHOD ALERT - should change isAvailable on book to true, then remove from Cardholder books
-kevinPrachith.checkinBook(cleanCode);
+console.log(kevinPrachith);
 
-console.log(kevinPrachith.books);
+// NEW METHOD ALERT - should change isAvailable on book to true, then remove from Cardholder books
+// kevinPrachith.checkin(cleanCode, mainBranch);
+
+// console.log(kevinPrachith.books);
 
 // tests error message in addBook method, should accepts only inputs of type object
 // staffPicks.addBook(7);
